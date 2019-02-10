@@ -3,7 +3,7 @@
 <?php
 
     try {
-        $dsn = "mysql:host=172.18.0.4;dbname=mysql;";
+        $dsn = "mysql:host=mysql;dbname=test;";
         $db = new PDO($dsn, 'root', 'pass');
 
         $sql = "SELECT * FROM test";
