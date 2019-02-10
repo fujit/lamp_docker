@@ -21,6 +21,8 @@ services:
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_USER=test
       - MYSQL_PASSWORD=test
+    ports:
+      - "13306:3306"
     volumes:
       # 設定ファイルを同期
       - ./mysql/mysql_conf:/etc/mysql/conf.d
