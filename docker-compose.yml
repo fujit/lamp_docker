@@ -18,7 +18,7 @@ services:
       context: ./mysql
       dockerfile: Dockerfile
     env_file:
-      - mysql.env
+      - mysql/mysql_conf/.env
     ports:
       - "13306:3306"
     volumes:
