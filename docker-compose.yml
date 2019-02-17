@@ -10,17 +10,15 @@ services:
       - ${PWD}/php:/var/www/html
     ports:
       - "80:80"
-    network_mode: "sample-network"
+    network_mode: "lamp-network"
 
   db1:
     container_name: lamp_mysql
     build:
       context: ./mysql
       dockerfile: Dockerfile
-    environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_USER=test
-      - MYSQL_PASSWORD=test
+    env_file:
+      - mysql.env
     ports:
       - "13306:3306"
     volumes:
@@ -28,9 +26,9 @@ services:
       - ./mysql/mysql_conf:/etc/mysql/conf.d
       # dockerコンテナを起動したき時「docker-entrypoint-initdb.d」にあるSQL文を実行してくれる
       - ./mysql/mysql_init:/docker-entrypoint-initdb.d
-      # システムファイルを同期
+      # データを同期
       - ./mysql/mysql_data:/var/lib/mysql
-    network_mode: "sample-network"
+    network_mode: "lamp-network"
 
 networks:
-  sample-network:
+  lamp-network:
