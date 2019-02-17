@@ -3,7 +3,7 @@
 <?php
 
     try {
-        $dsn = "mysql:host=mysql;dbname=test;";
+        $dsn = "mysql:host=lamp_mysql;dbname=test;";
         $db = new PDO($dsn, 'root', 'pass');
 
         $sql = "SELECT * FROM test";
@@ -17,4 +17,3 @@
     }
 
     echo '接続成功!';
-
