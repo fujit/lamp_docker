@@ -8,6 +8,8 @@ services:
     tty: true
     volumes:
       - ${PWD}/php:/var/www/html
+      - ${PWD}/web/php.ini:/usr/local/etc/php/php.ini
+      - ${PWD}/web/apache2.conf:/etc/apache2/apache2.con
     ports:
       - "80:80"
     network_mode: "lamp-network"
